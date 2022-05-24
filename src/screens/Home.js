@@ -1,5 +1,4 @@
 import React from "react";
-import Bookcard from "../components/Bookcard";
 import FilterModal from "../components/FilterModal";
 
 const Home = () => {
