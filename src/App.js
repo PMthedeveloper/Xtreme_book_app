@@ -12,7 +12,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Home/>} />
-        <Route path="/favourite-book" element={<FavouriteBook/>} />
+        <Route exact path="/favourite-book" element={<FavouriteBook/>} />
         <Route exact path="/book-details/:id/:page" element={<BookDetails/>} />
       </Routes>
     </Router>

@@ -11,12 +11,13 @@ import { Oval } from "react-loader-spinner";
 const FavouriteBook = (props) => {
   const [showload, setShowLoad] = useState(false);
   const [page, setPage] = useState(1);
-  var bookData = window.localStorage.getItem("favouriteBook");
+  var bookData = window.localStorage.getItem("favouriteBook")
+    ? window.localStorage.getItem("favouriteBook")
+    : window.localStorage.setItem("favouriteBook", JSON.stringify([]));
   bookData = JSON.parse(bookData);
   const handlePagechange = () => {
     setPage(page + 1);
   };
-  
 
   const handleFav = (id) => {
     var newFD = window.localStorage.getItem("favouriteBook");
@@ -25,8 +26,8 @@ const FavouriteBook = (props) => {
       return item.id === id;
     });
     const newfavData = favData;
-    if(newfavData !== -1){
-      newFD.splice(newfavData,1);
+    if (newfavData !== -1) {
+      newFD.splice(newfavData, 1);
     }
     window.localStorage.setItem("favouriteBook", JSON.stringify(newFD));
   };
@@ -48,10 +49,10 @@ const FavouriteBook = (props) => {
                 strokeWidth={5}
                 color="#b30000"
                 secondaryColor="#7f007f"
-                visible={bookData ? showload : !showload}
+                visible={bookData.length === 0 ? showload : !showload}
               />
             </div>
-            {bookData ? (
+            {bookData.length !== 0 ? (
               bookData.map((book) => {
                 return (
                   <div className="p-4 md:w-1/3" key={book.id}>
@@ -120,7 +121,7 @@ const FavouriteBook = (props) => {
             )}
           </div>
         </div>
-        {bookData ? (
+        {bookData.length !== 0 ? (
           <div className="mb-24 ml-24 mr-24 mt-16">
             <div className="content-end relative">
               <button

@@ -55,8 +55,8 @@ const Bookcard = (props) => {
 
   return (
     <div>
-      <div class="ml-28 mb-12 flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
-        <div class="relative w-full sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
+      <div className="ml-28 mb-12 flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
+        <div className="relative w-full sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
           <input
             onChange={handleChange}
             type="text"
